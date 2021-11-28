@@ -36,3 +36,36 @@ None, this is a public route
 ```
 
 </br>
+
+### Sign Up Company
+
+```
+POST /sign-company-up
+```
+
+#### Expected body
+
+```jsx
+{
+  name: String, at least 3 characters,
+  email: String, at least 5 characters, must be a valid email,
+  password: String, at least 8 characters, does not differentiate lower and upper cases,
+  cnpj: String, exactly 14 characters, no dots or hyphen,
+}
+```
+
+#### Expected headers
+
+```bash
+None, this is a public route
+```
+
+#### Possible response status
+
+```bash
+- 400: You have forgotten to send something, or sent invalid data, check your parameters
+- 409: A account is already registered with this email or cnpj
+- 201: Account created
+```
+
+</br>
