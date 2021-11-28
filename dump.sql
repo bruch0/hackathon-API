@@ -14,7 +14,7 @@ CREATE TABLE "lawyers" (
 CREATE TABLE "companys" (
 	"id" serial NOT NULL,
 	"name" varchar(255) NOT NULL,
-	"subscription_id" integer NOT NULL,
+	"subscription_id" integer,
 	"email" varchar(255) NOT NULL UNIQUE,
 	"password" varchar(255) NOT NULL,
 	"cnpj" varchar(14) NOT NULL UNIQUE,
