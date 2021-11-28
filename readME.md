@@ -1,29 +1,38 @@
-# Node Express Boilerplate
+# Help a Queer API
 
-## How to use 🧾
+## Documentation 🧾
 
-### Clone the repository
+### Sign Up Lawyer
 
-```bash
-git clone https://github.com/bruch0/node-boilerplate.git
+```
+POST /sign-lawyer-up
 ```
 
-### Move to the new directory
+#### Expected body
 
-```bash
-cd node-boilerplate
+```jsx
+{
+  name: String, at least 3 characters,
+  email: String, at least 5 characters, must be a valid email,
+  password: String, at least 8 characters, does not differentiate lower and upper cases,
+  cpf: String, exactly 11 characters, no dots or hyphen,
+  phone: String, exactly 11 characters, no parentheses, spaces or hyphen,
+  description: Strung, at least 8 characters, max 255 characters,
+}
 ```
 
-### Remove the .git folder
+#### Expected headers
 
 ```bash
-rm -rf .git
+None, this is a public route
 ```
 
-### Initialize your git
+#### Possible response status
 
 ```bash
-git init
+- 400: You have forgotten to send something, or sent invalid data, check your parameters
+- 409: A account is already registered with this email, phone, or cpf
+- 201: Account created
 ```
 
-### Move the readME.md from the ./docs folder and delete the folder
+</br>
