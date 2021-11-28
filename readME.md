@@ -69,3 +69,44 @@ None, this is a public route
 ```
 
 </br>
+
+### Sign In
+
+```
+POST /sign-in
+```
+
+#### Expected body
+
+```jsx
+{
+  email: String, at least 5 characters, must be a valid email,
+  password: String, at least 8 characters, does not differentiate lower and upper cases,
+}
+```
+
+#### Expected headers
+
+```bash
+None, this is a public route
+```
+
+#### Possible response status
+
+```bash
+- 400: You have forgotten to send something, or sent invalid data, check your parameters
+- 404: This email is not registered
+- 401: Incorrect password
+- 200: Logged successfully
+```
+
+#### What you will receive from this route
+
+```jsx
+{
+  token: JWT,
+  name: username,
+}
+```
+
+</br>
