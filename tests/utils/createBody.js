@@ -48,4 +48,19 @@ const invalidCompanyBody = () => {
   return body;
 };
 
-export { lawyerBody, invalidLawyerBody, companyBody, invalidCompanyBody };
+const loginBody = () => {
+  const body = {
+    email: faker.internet.email(),
+    password: faker.internet.password(),
+  };
+
+  return body;
+};
+
+export {
+  lawyerBody,
+  invalidLawyerBody,
+  companyBody,
+  invalidCompanyBody,
+  loginBody,
+};
