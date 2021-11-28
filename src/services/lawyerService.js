@@ -1,5 +1,6 @@
 import * as lawyerSchemas from '../schemas/lawyerSchemas.js';
 import * as lawyerRepository from '../repositories/lawyerRepository.js';
+import { hashSync } from 'bcrypt';
 
 const createLawyer = async ({
   name,
@@ -33,10 +34,12 @@ const createLawyer = async ({
   });
   if (phoneTaken) return -1;
 
+  const hashedPassword = hashSync(password, 12);
+
   const success = lawyerRepository.createLawyer({
     name,
     email,
-    password,
+    hashedPassword,
     cpf,
     phone,
     description,

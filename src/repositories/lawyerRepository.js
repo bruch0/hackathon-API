@@ -30,14 +30,14 @@ const lawyerPhoneAlreadyRegistered = async ({ phone }) => {
 const createLawyer = async ({
   name,
   email,
-  password,
+  hashedPassword,
   cpf,
   phone,
   description,
 }) => {
   await connection.query(
     'INSERT INTO lawyers (name, email, password, cpf, phone, description) VALUES ($1, $2, $3, $4, $5, $6)',
-    [name, email, password, cpf, phone, description]
+    [name, email, hashedPassword, cpf, phone, description]
   );
 
   return 1;
